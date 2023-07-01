@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from 'react';
 
-import * as searchServices from '~/apiServices/searchServices';
+import * as searchService from '~/Services/searchService';
 
 import { faCircleXmark, faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -35,7 +35,7 @@ function Search() {
     const fetchApi = async () => {
       setLoading(true);
 
-      const result = await searchServices.search(debounced);
+      const result = await searchService.search(debounced);
 
       setSearchResult(result);
       setLoading(false);
